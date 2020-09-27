@@ -20,13 +20,16 @@ public class DesafioCompiladores {
         
         Resposta resp = new Resposta();
         Scanner input = new Scanner(System.in);
-        System.out.println("Digite aqui sua linha de caracteres contendo <{[()]}>");
-        System.out.println();
-        String entrada = input.next();
-
-        if(resp.validaEntrada(entrada))
-            System.out.println(entrada + " - Válido");
-        else
-            System.out.println(entrada + " - Inválido");
+        String entrada;
+        do{
+            System.out.println("Digite aqui sua linha de caracteres contendo <{[()]}> (ou digite sair para finalizar):");
+            entrada = input.next();
+            if("sair".equals(entrada))
+                break;
+            if(resp.validaEntrada(entrada))
+                System.out.println(entrada + " - Válido");
+            else
+                System.out.println(entrada + " - Inválido");
+        }while(true);
     }
 }
